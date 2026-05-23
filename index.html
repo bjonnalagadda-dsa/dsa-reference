@@ -37,6 +37,8 @@
   .nav-item.active { background: rgba(99,102,241,.15); border-left-color: var(--accent); color: var(--text); font-weight: 600; }
   .nav-icon { font-size: 1.1rem; width: 22px; text-align: center; }
   .nav-badge { margin-left: auto; font-size: .7rem; background: var(--accent); color: #fff; border-radius: 99px; padding: 1px 7px; }
+  .nav-section-label { padding: 14px 16px 4px; font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #3a3f5a; }
+  .faang-badge { margin-left: auto; font-size: .65rem; background: linear-gradient(90deg,#f59e0b,#ef4444); color: #fff; border-radius: 99px; padding: 1px 7px; font-weight: 700; }
 
   /* MAIN */
   #main { flex: 1; overflow-y: auto; padding: 32px; }
@@ -147,6 +149,20 @@
     </div>
     <div class="nav-item" onclick="show('dp',this)" data-label="Dynamic Programming">
       <span class="nav-icon">🧠</span> Dynamic Programming
+    </div>
+    <div class="nav-section-label">⚡ FAANG Advanced</div>
+    <div class="nav-item" onclick="show('faang',this)" data-label="FAANG Top Patterns">
+      <span class="nav-icon">🏆</span> FAANG Top Patterns
+      <span class="faang-badge">HOT</span>
+    </div>
+    <div class="nav-item" onclick="show('trie',this)" data-label="Trie Prefix Tree">
+      <span class="nav-icon">🔤</span> Trie
+    </div>
+    <div class="nav-item" onclick="show('bits',this)" data-label="Bit Manipulation">
+      <span class="nav-icon">🔢</span> Bit Manipulation
+    </div>
+    <div class="nav-item" onclick="show('graphalgo',this)" data-label="Graph Algorithms Dijkstra">
+      <span class="nav-icon">🗺️</span> Graph Algorithms
     </div>
   </div>
 </nav>
@@ -1246,6 +1262,424 @@ dp[i] = <span class="fn">any</span>(dp[j] <span class="kw">and</span> s[j:i] <sp
 
 <span class="cm"># Longest palindromic substring</span>
 dp[i][j] = dp[i+<span class="num">1</span>][j-<span class="num">1</span>] <span class="kw">and</span> s[i] == s[j]</pre>
+  </div>
+</section>
+
+<!-- ============ FAANG TOP PATTERNS ============ -->
+<section class="section" id="faang">
+  <div class="page-title">🏆 FAANG Top Patterns</div>
+  <div class="page-subtitle">The most frequently tested patterns at Google, Meta, Amazon, Apple & Netflix. Study these first — they cover ~85% of what you'll see.</div>
+  <div class="alert warn">⚡ Ranked by interview frequency. Focus top-down.</div>
+  <div class="grid">
+    <div class="card">
+      <h3>🥇 Frequency by Company</h3>
+      <table>
+        <tr><th>Pattern</th><th>Companies</th></tr>
+        <tr><td>Arrays / Two Pointers</td><td>All FAANG</td></tr>
+        <tr><td>Trees / DFS / BFS</td><td>All FAANG</td></tr>
+        <tr><td>Dynamic Programming</td><td>Google, Meta, Amazon</td></tr>
+        <tr><td>Graph / BFS shortest path</td><td>Google, Meta</td></tr>
+        <tr><td>Sliding Window</td><td>Amazon, Apple</td></tr>
+        <tr><td>Binary Search</td><td>Google, Amazon</td></tr>
+        <tr><td>Trie</td><td>Google, Meta</td></tr>
+        <tr><td>Heap / Top-K</td><td>Amazon, Netflix</td></tr>
+        <tr><td>Backtracking</td><td>Google, Meta</td></tr>
+        <tr><td>Bit Manipulation</td><td>Apple, Amazon</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>🔥 Must-Know Problems</h3>
+      <ul>
+        <li><strong>Two Sum</strong> — HashMap O(n)</li>
+        <li><strong>Longest Substring Without Repeating</strong> — Sliding window</li>
+        <li><strong>LRU Cache</strong> — HashMap + Doubly linked list</li>
+        <li><strong>Number of Islands</strong> — BFS/DFS flood fill</li>
+        <li><strong>Word Ladder</strong> — BFS shortest path</li>
+        <li><strong>Serialize/Deserialize Binary Tree</strong> — DFS</li>
+        <li><strong>Trapping Rain Water</strong> — Two pointers / Mono stack</li>
+        <li><strong>Course Schedule</strong> — Topological sort</li>
+        <li><strong>Merge K Sorted Lists</strong> — Min-heap</li>
+        <li><strong>Word Search II</strong> — Trie + Backtracking</li>
+        <li><strong>Median of Data Stream</strong> — Two heaps</li>
+        <li><strong>Edit Distance</strong> — 2D DP</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🧩 14 Coding Patterns (Blind 75)</h3>
+      <ul>
+        <li>1. Sliding Window</li>
+        <li>2. Two Pointers</li>
+        <li>3. Fast &amp; Slow Pointers</li>
+        <li>4. Merge Intervals</li>
+        <li>5. Cyclic Sort</li>
+        <li>6. In-place Linked List Reversal</li>
+        <li>7. Tree BFS (level-order)</li>
+        <li>8. Tree DFS</li>
+        <li>9. Two Heaps</li>
+        <li>10. Subsets / Backtracking</li>
+        <li>11. Modified Binary Search</li>
+        <li>12. Top K Elements (Heap)</li>
+        <li>13. K-way Merge</li>
+        <li>14. 0/1 Knapsack DP</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📅 4-Week Study Plan</h3>
+      <ul>
+        <li><strong>Week 1:</strong> Arrays, Strings, Hashing, Two Pointers</li>
+        <li><strong>Week 2:</strong> Trees, Graphs, BFS/DFS, Linked Lists</li>
+        <li><strong>Week 3:</strong> Binary Search, Heaps, Backtracking</li>
+        <li><strong>Week 4:</strong> DP, Trie, Bit Manipulation, Graph Algos</li>
+        <li>Daily: 2–3 LeetCode problems (1 easy + 1 medium)</li>
+        <li>Before interview: mock interviews, review all patterns</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🗣️ Interview Tips</h3>
+      <ul>
+        <li>Think out loud — communication is graded equally</li>
+        <li>State brute force first, then optimize</li>
+        <li>Ask clarifying questions before coding</li>
+        <li>Write clean, readable code with good variable names</li>
+        <li>Test edge cases: [], [1], negatives, duplicates</li>
+        <li>State time &amp; space complexity for every solution</li>
+        <li>If stuck: try small examples, look for a pattern</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>💡 LRU Cache (Meta Classic)</h3>
+      <div class="code-block"><pre><span class="kw">class</span> <span class="cls">Node</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="kw">self</span>, k, v):
+        <span class="kw">self</span>.key=k; <span class="kw">self</span>.val=v
+        <span class="kw">self</span>.prev=<span class="kw">self</span>.next=<span class="kw">None</span>
+
+<span class="kw">class</span> <span class="cls">LRUCache</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="kw">self</span>, cap):
+        <span class="kw">self</span>.cap=cap; <span class="kw">self</span>.cache={}
+        <span class="kw">self</span>.head=<span class="cls">Node</span>(<span class="num">0</span>,<span class="num">0</span>); <span class="kw">self</span>.tail=<span class="cls">Node</span>(<span class="num">0</span>,<span class="num">0</span>)
+        <span class="kw">self</span>.head.next=<span class="kw">self</span>.tail; <span class="kw">self</span>.tail.prev=<span class="kw">self</span>.head
+    <span class="kw">def</span> <span class="fn">_remove</span>(<span class="kw">self</span>,n):
+        n.prev.next=n.next; n.next.prev=n.prev
+    <span class="kw">def</span> <span class="fn">_insert</span>(<span class="kw">self</span>,n):
+        n.next=<span class="kw">self</span>.head.next; n.prev=<span class="kw">self</span>.head
+        <span class="kw">self</span>.head.next.prev=n; <span class="kw">self</span>.head.next=n
+    <span class="kw">def</span> <span class="fn">get</span>(<span class="kw">self</span>,k):
+        <span class="kw">if</span> k <span class="kw">not in self</span>.cache: <span class="kw">return</span> -<span class="num">1</span>
+        <span class="kw">self</span>.<span class="fn">_remove</span>(<span class="kw">self</span>.cache[k]); <span class="kw">self</span>.<span class="fn">_insert</span>(<span class="kw">self</span>.cache[k])
+        <span class="kw">return self</span>.cache[k].val
+    <span class="kw">def</span> <span class="fn">put</span>(<span class="kw">self</span>,k,v):
+        <span class="kw">if</span> k <span class="kw">in self</span>.cache: <span class="kw">self</span>.<span class="fn">_remove</span>(<span class="kw">self</span>.cache[k])
+        <span class="kw">self</span>.cache[k]=<span class="cls">Node</span>(k,v); <span class="kw">self</span>.<span class="fn">_insert</span>(<span class="kw">self</span>.cache[k])
+        <span class="kw">if</span> <span class="fn">len</span>(<span class="kw">self</span>.cache)&gt;<span class="kw">self</span>.cap:
+            lru=<span class="kw">self</span>.tail.prev; <span class="kw">self</span>.<span class="fn">_remove</span>(lru); <span class="kw">del self</span>.cache[lru.key]</pre></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRIE ============ -->
+<section class="section" id="trie">
+  <div class="page-title">🔤 Trie (Prefix Tree)</div>
+  <div class="page-subtitle">A tree where each node is a character. Perfect for prefix lookups, autocomplete, and word search. Very common at Google and Meta.</div>
+  <div class="tags">
+    <span class="tag green">Insert O(m)</span><span class="tag green">Search O(m)</span><span class="tag yellow">Prefix Search</span><span class="tag">Word Search II</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>🏗️ Trie Implementation</h3>
+      <div class="code-block"><pre><span class="kw">class</span> <span class="cls">TrieNode</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="kw">self</span>):
+        <span class="kw">self</span>.children = {}
+        <span class="kw">self</span>.is_end = <span class="kw">False</span>
+
+<span class="kw">class</span> <span class="cls">Trie</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="kw">self</span>):
+        <span class="kw">self</span>.root = <span class="cls">TrieNode</span>()
+
+    <span class="kw">def</span> <span class="fn">insert</span>(<span class="kw">self</span>, word):
+        node = <span class="kw">self</span>.root
+        <span class="kw">for</span> c <span class="kw">in</span> word:
+            <span class="kw">if</span> c <span class="kw">not in</span> node.children:
+                node.children[c] = <span class="cls">TrieNode</span>()
+            node = node.children[c]
+        node.is_end = <span class="kw">True</span>
+
+    <span class="kw">def</span> <span class="fn">search</span>(<span class="kw">self</span>, word):
+        node = <span class="kw">self</span>.root
+        <span class="kw">for</span> c <span class="kw">in</span> word:
+            <span class="kw">if</span> c <span class="kw">not in</span> node.children: <span class="kw">return False</span>
+            node = node.children[c]
+        <span class="kw">return</span> node.is_end
+
+    <span class="kw">def</span> <span class="fn">startsWith</span>(<span class="kw">self</span>, prefix):
+        node = <span class="kw">self</span>.root
+        <span class="kw">for</span> c <span class="kw">in</span> prefix:
+            <span class="kw">if</span> c <span class="kw">not in</span> node.children: <span class="kw">return False</span>
+            node = node.children[c]
+        <span class="kw">return True</span></pre></div>
+    </div>
+    <div class="card">
+      <h3>🃏 Word Search II (Trie + Backtracking)</h3>
+      <div class="alert info">Build Trie from word list, DFS the board matching against it.</div>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">findWords</span>(board, words):
+    trie = <span class="cls">Trie</span>()
+    <span class="kw">for</span> w <span class="kw">in</span> words: trie.<span class="fn">insert</span>(w)
+    rows,cols=<span class="fn">len</span>(board),<span class="fn">len</span>(board[<span class="num">0</span>])
+    result=<span class="fn">set</span>()
+    <span class="kw">def</span> <span class="fn">dfs</span>(r,c,node,path):
+        <span class="kw">if</span> node.is_end: result.add(path)
+        tmp,board[r][c]=board[r][c],<span class="str">'#'</span>
+        <span class="kw">for</span> dr,dc <span class="kw">in</span> [(<span class="num">0</span>,<span class="num">1</span>),(<span class="num">0</span>,-<span class="num">1</span>),(<span class="num">1</span>,<span class="num">0</span>),(-<span class="num">1</span>,<span class="num">0</span>)]:
+            nr,nc=r+dr,c+dc
+            <span class="kw">if</span> <span class="num">0</span>&lt;=nr&lt;rows <span class="kw">and</span> <span class="num">0</span>&lt;=nc&lt;cols:
+                ch=board[nr][nc]
+                <span class="kw">if</span> ch <span class="kw">in</span> node.children:
+                    <span class="fn">dfs</span>(nr,nc,node.children[ch],path+ch)
+        board[r][c]=tmp
+    <span class="kw">for</span> r <span class="kw">in</span> <span class="fn">range</span>(rows):
+        <span class="kw">for</span> c <span class="kw">in</span> <span class="fn">range</span>(cols):
+            ch=board[r][c]
+            <span class="kw">if</span> ch <span class="kw">in</span> trie.root.children:
+                <span class="fn">dfs</span>(r,c,trie.root.children[ch],ch)
+    <span class="kw">return</span> <span class="fn">list</span>(result)</pre></div>
+    </div>
+    <div class="card">
+      <h3>🔍 Wildcard Search ('.' matches any)</h3>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">search_wildcard</span>(<span class="kw">self</span>, word):
+    <span class="kw">def</span> <span class="fn">dfs</span>(node, i):
+        <span class="kw">if</span> i == <span class="fn">len</span>(word): <span class="kw">return</span> node.is_end
+        c = word[i]
+        <span class="kw">if</span> c == <span class="str">'.'</span>:
+            <span class="kw">return any</span>(<span class="fn">dfs</span>(child, i+<span class="num">1</span>)
+                <span class="kw">for</span> child <span class="kw">in</span> node.children.values())
+        <span class="kw">if</span> c <span class="kw">not in</span> node.children: <span class="kw">return False</span>
+        <span class="kw">return</span> <span class="fn">dfs</span>(node.children[c], i+<span class="num">1</span>)
+    <span class="kw">return</span> <span class="fn">dfs</span>(<span class="kw">self</span>.root, <span class="num">0</span>)</pre></div>
+    </div>
+    <div class="card">
+      <h3>🔑 Key Reminders</h3>
+      <ul>
+        <li>m = word length; all ops are O(m)</li>
+        <li>Use <code>[None]*26</code> array instead of dict for lowercase-only (faster)</li>
+        <li>Prune matched words from Trie during Word Search II to avoid revisiting</li>
+        <li>Trie beats HashMap when you need prefix search, not just exact match</li>
+        <li>Common: Implement Trie, Add &amp; Search Words, Word Search II, Replace Words, AutoComplete</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIT MANIPULATION ============ -->
+<section class="section" id="bits">
+  <div class="page-title">🔢 Bit Manipulation</div>
+  <div class="page-subtitle">Bit tricks give O(1) solutions to problems that otherwise need O(n). Common at Apple, Amazon, and Google DP optimization rounds.</div>
+  <div class="tags">
+    <span class="tag green">XOR tricks</span><span class="tag yellow">Bit masking</span><span class="tag">Count bits</span><span class="tag">Power of 2</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>📋 Operators Cheat Sheet</h3>
+      <div class="code-block"><pre><span class="cm"># AND  &amp;   — both bits 1</span>
+<span class="cm"># OR   |   — at least one bit 1</span>
+<span class="cm"># XOR  ^   — bits are different</span>
+<span class="cm"># NOT  ~   — flip all bits</span>
+<span class="cm"># LEFT  &lt;&lt; — multiply by 2</span>
+<span class="cm"># RIGHT &gt;&gt; — divide by 2</span>
+
+n &amp; <span class="num">1</span>        <span class="cm"># check if odd</span>
+n &amp; (n-<span class="num">1</span>)    <span class="cm"># clear lowest set bit</span>
+n &amp; (-n)     <span class="cm"># isolate lowest set bit</span>
+n ^ n        <span class="cm"># = 0  (cancel out)</span>
+n ^ <span class="num">0</span>        <span class="cm"># = n  (identity)</span>
+<span class="num">1</span> &lt;&lt; k       <span class="cm"># 2^k</span>
+n &gt;&gt; k       <span class="cm"># n // 2^k</span></pre></div>
+    </div>
+    <div class="card">
+      <h3>🔦 XOR Magic</h3>
+      <div class="alert info">XOR: same bits cancel. Pairs wipe out, leaving the unique element.</div>
+      <div class="code-block"><pre><span class="cm"># Single Number — one appears once, rest twice</span>
+<span class="kw">def</span> <span class="fn">single_number</span>(nums):
+    res = <span class="num">0</span>
+    <span class="kw">for</span> n <span class="kw">in</span> nums: res ^= n
+    <span class="kw">return</span> res   <span class="cm"># O(n) time, O(1) space</span>
+
+<span class="cm"># Missing number (0..n)</span>
+<span class="kw">def</span> <span class="fn">missing</span>(nums):
+    res = <span class="fn">len</span>(nums)
+    <span class="kw">for</span> i, n <span class="kw">in</span> <span class="fn">enumerate</span>(nums):
+        res ^= i ^ n
+    <span class="kw">return</span> res</pre></div>
+    </div>
+    <div class="card">
+      <h3>🧮 Count Bits</h3>
+      <div class="code-block"><pre><span class="cm"># Hamming weight (count 1s in n)</span>
+<span class="kw">def</span> <span class="fn">hamming_weight</span>(n):
+    count = <span class="num">0</span>
+    <span class="kw">while</span> n:
+        n &amp;= n - <span class="num">1</span>   <span class="cm"># clear lowest set bit</span>
+        count += <span class="num">1</span>
+    <span class="kw">return</span> count
+
+<span class="cm"># Count bits 0..n (DP)</span>
+<span class="kw">def</span> <span class="fn">count_bits</span>(n):
+    dp = [<span class="num">0</span>] * (n + <span class="num">1</span>)
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, n+<span class="num">1</span>):
+        dp[i] = dp[i &gt;&gt; <span class="num">1</span>] + (i &amp; <span class="num">1</span>)
+    <span class="kw">return</span> dp
+
+bin(n).count(<span class="str">'1'</span>)   <span class="cm"># Python built-in</span></pre></div>
+    </div>
+    <div class="card">
+      <h3>🔍 Common Tricks</h3>
+      <div class="code-block"><pre><span class="cm"># Is power of 2?</span>
+n &gt; <span class="num">0</span> <span class="kw">and</span> (n &amp; n-<span class="num">1</span>) == <span class="num">0</span>
+
+<span class="cm"># Get bit at position i</span>
+(n &gt;&gt; i) &amp; <span class="num">1</span>
+
+<span class="cm"># Set bit at position i</span>
+n | (<span class="num">1</span> &lt;&lt; i)
+
+<span class="cm"># Clear bit at position i</span>
+n &amp; ~(<span class="num">1</span> &lt;&lt; i)
+
+<span class="cm"># Toggle bit at position i</span>
+n ^ (<span class="num">1</span> &lt;&lt; i)
+
+<span class="cm"># Reverse 32 bits</span>
+<span class="kw">def</span> <span class="fn">reverse_bits</span>(n):
+    res = <span class="num">0</span>
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(<span class="num">32</span>):
+        res = (res &lt;&lt; <span class="num">1</span>) | (n &amp; <span class="num">1</span>)
+        n &gt;&gt;= <span class="num">1</span>
+    <span class="kw">return</span> res</pre></div>
+    </div>
+    <div class="card">
+      <h3>🔑 Key Reminders</h3>
+      <ul>
+        <li>XOR is commutative &amp; associative — order doesn't matter</li>
+        <li><code>n &amp; (n-1)</code> removes lowest set bit — use for bit counting</li>
+        <li><code>n &amp; (-n)</code> isolates lowest set bit — use to split groups</li>
+        <li>Bitmask DP: represent subsets as integers (used in TSP, scheduling)</li>
+        <li>Python integers have no overflow — no 32-bit wrapping issues</li>
+        <li>Must-know: Single Number I/II/III, Missing Number, Reverse Bits, Sum Without +</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GRAPH ALGORITHMS ============ -->
+<section class="section" id="graphalgo">
+  <div class="page-title">🗺️ Graph Algorithms</div>
+  <div class="page-subtitle">Shortest paths, minimum spanning trees — beyond basic BFS/DFS. Appear in senior-level FAANG rounds and system design cross-overs.</div>
+  <div class="tags">
+    <span class="tag green">Dijkstra</span><span class="tag green">Bellman-Ford</span><span class="tag yellow">Prim's</span><span class="tag yellow">Kruskal's</span><span class="tag">Floyd-Warshall</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ Dijkstra (Weighted, No Negatives)</h3>
+      <div class="alert info">O((V+E) log V) with min-heap. Single source shortest path.</div>
+      <div class="code-block"><pre><span class="kw">import</span> heapq
+
+<span class="kw">def</span> <span class="fn">dijkstra</span>(graph, src, n):
+    <span class="cm"># graph[u] = [(weight, v), ...]</span>
+    dist = [<span class="fn">float</span>(<span class="str">'inf'</span>)] * n
+    dist[src] = <span class="num">0</span>
+    heap = [(<span class="num">0</span>, src)]
+    <span class="kw">while</span> heap:
+        d, u = heapq.heappop(heap)
+        <span class="kw">if</span> d &gt; dist[u]: <span class="kw">continue</span>  <span class="cm"># stale</span>
+        <span class="kw">for</span> w, v <span class="kw">in</span> graph[u]:
+            nd = dist[u] + w
+            <span class="kw">if</span> nd &lt; dist[v]:
+                dist[v] = nd
+                heapq.heappush(heap, (nd, v))
+    <span class="kw">return</span> dist</pre></div>
+    </div>
+    <div class="card">
+      <h3>🔄 Bellman-Ford (Handles Negatives)</h3>
+      <div class="alert warn">Detects negative cycles. O(V·E) — slower than Dijkstra.</div>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">bellman_ford</span>(n, edges, src):
+    <span class="cm"># edges = [(u, v, w)]</span>
+    dist = [<span class="fn">float</span>(<span class="str">'inf'</span>)] * n
+    dist[src] = <span class="num">0</span>
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(n - <span class="num">1</span>):  <span class="cm"># relax V-1 times</span>
+        <span class="kw">for</span> u, v, w <span class="kw">in</span> edges:
+            <span class="kw">if</span> dist[u] + w &lt; dist[v]:
+                dist[v] = dist[u] + w
+    <span class="kw">for</span> u, v, w <span class="kw">in</span> edges:    <span class="cm"># detect neg cycle</span>
+        <span class="kw">if</span> dist[u] + w &lt; dist[v]: <span class="kw">return None</span>
+    <span class="kw">return</span> dist</pre></div>
+    </div>
+    <div class="card">
+      <h3>🌐 Floyd-Warshall (All Pairs)</h3>
+      <div class="alert info">O(V³). Find shortest path between every pair. Small graphs only.</div>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">floyd_warshall</span>(dist):
+    <span class="cm"># dist[i][j] = edge weight (inf if none)</span>
+    n = <span class="fn">len</span>(dist)
+    <span class="kw">for</span> k <span class="kw">in</span> <span class="fn">range</span>(n):
+        <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(n):
+            <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(n):
+                dist[i][j] = <span class="fn">min</span>(dist[i][j],
+                    dist[i][k] + dist[k][j])
+    <span class="kw">return</span> dist</pre></div>
+    </div>
+    <div class="card">
+      <h3>🌲 Kruskal's MST (Sort + Union-Find)</h3>
+      <div class="alert info">Sort edges by weight. Add if no cycle. O(E log E).</div>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">kruskal</span>(n, edges):
+    <span class="cm"># edges = [(w, u, v)]</span>
+    edges.<span class="fn">sort</span>()
+    uf = <span class="cls">UnionFind</span>(n)
+    total = <span class="num">0</span>
+    <span class="kw">for</span> w, u, v <span class="kw">in</span> edges:
+        <span class="kw">if</span> uf.<span class="fn">union</span>(u, v):
+            total += w
+    <span class="kw">return</span> total</pre></div>
+    </div>
+    <div class="card">
+      <h3>🌿 Prim's MST (Heap)</h3>
+      <div class="alert info">Grow MST one vertex at a time. O(E log V).</div>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">prim</span>(graph, n):
+    <span class="cm"># graph[u] = [(w, v)]</span>
+    visited = <span class="fn">set</span>()
+    heap = [(<span class="num">0</span>, <span class="num">0</span>)]
+    total = <span class="num">0</span>
+    <span class="kw">while</span> heap <span class="kw">and</span> <span class="fn">len</span>(visited) &lt; n:
+        w, u = heapq.heappop(heap)
+        <span class="kw">if</span> u <span class="kw">in</span> visited: <span class="kw">continue</span>
+        visited.add(u); total += w
+        <span class="kw">for</span> wt, v <span class="kw">in</span> graph[u]:
+            <span class="kw">if</span> v <span class="kw">not in</span> visited:
+                heapq.heappush(heap, (wt, v))
+    <span class="kw">return</span> total <span class="kw">if</span> <span class="fn">len</span>(visited)==n <span class="kw">else</span> -<span class="num">1</span></pre></div>
+    </div>
+    <div class="card">
+      <h3>🔑 When to Use Which</h3>
+      <table>
+        <tr><th>Algorithm</th><th>Use When</th><th>Time</th></tr>
+        <tr><td>BFS</td><td>Unweighted shortest path</td><td>O(V+E)</td></tr>
+        <tr><td>Dijkstra</td><td>Weighted, no negatives</td><td>O((V+E)logV)</td></tr>
+        <tr><td>Bellman-Ford</td><td>Negative weights/cycles</td><td>O(V·E)</td></tr>
+        <tr><td>Floyd-Warshall</td><td>All pairs, small graph</td><td>O(V³)</td></tr>
+        <tr><td>Kruskal/Prim</td><td>Minimum spanning tree</td><td>O(E log E)</td></tr>
+      </table>
+    </div>
+  </div>
+  <hr class="divider">
+  <div class="code-block">
+    <div class="code-label">Network Delay Time — Classic FAANG (Dijkstra)</div>
+    <pre><span class="kw">def</span> <span class="fn">network_delay_time</span>(times, n, k):
+    graph = defaultdict(<span class="cls">list</span>)
+    <span class="kw">for</span> u, v, w <span class="kw">in</span> times: graph[u].append((w, v))
+    dist = {k: <span class="num">0</span>}; heap = [(<span class="num">0</span>, k)]
+    <span class="kw">while</span> heap:
+        d, u = heapq.heappop(heap)
+        <span class="kw">if</span> d &gt; dist.get(u, <span class="fn">float</span>(<span class="str">'inf'</span>)): <span class="kw">continue</span>
+        <span class="kw">for</span> w, v <span class="kw">in</span> graph[u]:
+            nd = d + w
+            <span class="kw">if</span> nd &lt; dist.get(v, <span class="fn">float</span>(<span class="str">'inf'</span>)):
+                dist[v] = nd; heapq.heappush(heap, (nd, v))
+    <span class="kw">return</span> <span class="fn">max</span>(dist.values()) <span class="kw">if</span> <span class="fn">len</span>(dist)==n <span class="kw">else</span> -<span class="num">1</span></pre>
   </div>
 </section>
 

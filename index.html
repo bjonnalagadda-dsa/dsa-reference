@@ -132,6 +132,9 @@
     <div class="nav-item" onclick="show('stacks',this)" data-label="Stacks and Queues">
       <span class="nav-icon">📚</span> Stacks & Queues
     </div>
+    <div class="nav-item" onclick="show('recursion',this)" data-label="Recursion">
+      <span class="nav-icon">🔁</span> Recursion
+    </div>
     <div class="nav-item" onclick="show('trees',this)" data-label="Trees and Graphs">
       <span class="nav-icon">🌳</span> Trees & Graphs
     </div>
@@ -631,6 +634,162 @@ q.appendleft(x)      <span class="cm"># push front</span></pre></div>
         <li>BFS always uses a queue (deque) — never recursion</li>
         <li>Daily Temperatures, Next Greater, Trapping Rain Water → Monotonic Stack</li>
         <li>Min stack: keep a parallel stack of minimums</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECURSION ============ -->
+<section class="section" id="recursion">
+  <div class="page-title">🔁 Recursion</div>
+  <div class="page-subtitle">A function that calls itself to solve smaller subproblems. Every recursive solution needs a base case (stop condition) and a recursive case (reduce + call self).</div>
+
+  <div class="tags">
+    <span class="tag green">Trees</span><span class="tag green">Linked Lists</span><span class="tag yellow">Backtracking</span><span class="tag yellow">Divide & Conquer</span><span class="tag">DP</span><span class="tag">Graphs</span>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🏗️ Universal Template</h3>
+      <div class="code-block"><pre><span class="kw">def</span> <span class="fn">solve</span>(problem):
+    <span class="cm"># 1. Base case — when to STOP</span>
+    <span class="kw">if</span> <span class="fn">is_smallest</span>(problem):
+        <span class="kw">return</span> base_answer
+
+    <span class="cm"># 2. Recursive case — shrink problem, call self</span>
+    smaller = <span class="fn">shrink</span>(problem)
+    sub_answer = <span class="fn">solve</span>(smaller)
+
+    <span class="cm"># 3. Combine sub-answer into current answer</span>
+    <span class="kw">return</span> <span class="fn">combine</span>(sub_answer, current_piece)</pre></div>
+    </div>
+
+    <div class="card">
+      <h3>📐 Where Recursion Is Needed</h3>
+      <ul>
+        <li><strong>Trees</strong> — every node delegates to left & right children</li>
+        <li><strong>Graphs (DFS)</strong> — explore each neighbor before backtracking</li>
+        <li><strong>Linked Lists</strong> — process head, recurse on rest</li>
+        <li><strong>Backtracking</strong> — make a choice, recurse, undo choice</li>
+        <li><strong>Divide & Conquer</strong> — split input, solve halves, merge</li>
+        <li><strong>Dynamic Programming</strong> — overlapping subproblems built recursively + memo</li>
+        <li><strong>Binary Search</strong> — shrink search space each call</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🌳 Tree Recursion (most common)</h3>
+      <div class="code-block"><pre><span class="cm"># Max depth of a binary tree</span>
+<span class="kw">def</span> <span class="fn">max_depth</span>(node):
+    <span class="kw">if not</span> node: <span class="kw">return</span> <span class="num">0</span>          <span class="cm"># base: empty node</span>
+    L = <span class="fn">max_depth</span>(node.left)       <span class="cm"># recurse left</span>
+    R = <span class="fn">max_depth</span>(node.right)      <span class="cm"># recurse right</span>
+    <span class="kw">return</span> <span class="num">1</span> + <span class="fn">max</span>(L, R)           <span class="cm"># combine</span>
+
+<span class="cm"># Check if two trees are the same</span>
+<span class="kw">def</span> <span class="fn">is_same</span>(p, q):
+    <span class="kw">if not</span> p <span class="kw">and not</span> q: <span class="kw">return True</span>   <span class="cm"># both empty</span>
+    <span class="kw">if not</span> p <span class="kw">or not</span> q: <span class="kw">return False</span>   <span class="cm"># one empty</span>
+    <span class="kw">return</span> (p.val == q.val
+            <span class="kw">and</span> <span class="fn">is_same</span>(p.left,  q.left)
+            <span class="kw">and</span> <span class="fn">is_same</span>(p.right, q.right))</pre></div>
+    </div>
+
+    <div class="card">
+      <h3>🔗 Linked List Recursion</h3>
+      <div class="code-block"><pre><span class="cm"># Reverse a linked list recursively</span>
+<span class="kw">def</span> <span class="fn">reverse</span>(head):
+    <span class="kw">if not</span> head <span class="kw">or not</span> head.next:
+        <span class="kw">return</span> head               <span class="cm"># base: 0 or 1 node</span>
+    new_head = <span class="fn">reverse</span>(head.next) <span class="cm"># recurse on rest</span>
+    head.next.next = head          <span class="cm"># reverse the link</span>
+    head.next = <span class="kw">None</span>
+    <span class="kw">return</span> new_head
+
+<span class="cm"># Check if linked list is palindrome</span>
+<span class="kw">def</span> <span class="fn">palindrome</span>(head):
+    vals = []
+    <span class="kw">def</span> <span class="fn">collect</span>(node):
+        <span class="kw">if not</span> node: <span class="kw">return</span>
+        vals.append(node.val)
+        <span class="fn">collect</span>(node.next)
+    <span class="fn">collect</span>(head)
+    <span class="kw">return</span> vals == vals[::-<span class="num">1</span>]</pre></div>
+    </div>
+
+    <div class="card">
+      <h3>✂️ Divide & Conquer</h3>
+      <div class="code-block"><pre><span class="cm"># Merge Sort — classic divide & conquer</span>
+<span class="kw">def</span> <span class="fn">merge_sort</span>(arr):
+    <span class="kw">if</span> <span class="fn">len</span>(arr) &lt;= <span class="num">1</span>: <span class="kw">return</span> arr   <span class="cm"># base case</span>
+
+    mid = <span class="fn">len</span>(arr) // <span class="num">2</span>
+    L = <span class="fn">merge_sort</span>(arr[:mid])      <span class="cm"># solve left half</span>
+    R = <span class="fn">merge_sort</span>(arr[mid:])      <span class="cm"># solve right half</span>
+    <span class="kw">return</span> <span class="fn">merge</span>(L, R)             <span class="cm"># combine</span>
+
+<span class="kw">def</span> <span class="fn">merge</span>(L, R):
+    res, i, j = [], <span class="num">0</span>, <span class="num">0</span>
+    <span class="kw">while</span> i &lt; <span class="fn">len</span>(L) <span class="kw">and</span> j &lt; <span class="fn">len</span>(R):
+        <span class="kw">if</span> L[i] &lt;= R[j]: res.append(L[i]); i += <span class="num">1</span>
+        <span class="kw">else</span>:            res.append(R[j]); j += <span class="num">1</span>
+    <span class="kw">return</span> res + L[i:] + R[j:]</pre></div>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Memoization (Recursion + Cache)</h3>
+      <div class="code-block"><pre><span class="cm"># Without memo → O(2ⁿ), with memo → O(n)</span>
+<span class="kw">from</span> functools <span class="kw">import</span> lru_cache
+
+<span class="cm"># Fibonacci with lru_cache (easiest way)</span>
+@lru_cache(maxsize=<span class="kw">None</span>)
+<span class="kw">def</span> <span class="fn">fib</span>(n):
+    <span class="kw">if</span> n &lt;= <span class="num">1</span>: <span class="kw">return</span> n
+    <span class="kw">return</span> <span class="fn">fib</span>(n - <span class="num">1</span>) + <span class="fn">fib</span>(n - <span class="num">2</span>)
+
+<span class="cm"># Manual memo dict (more explicit)</span>
+<span class="kw">def</span> <span class="fn">fib2</span>(n, memo={}):
+    <span class="kw">if</span> n <span class="kw">in</span> memo: <span class="kw">return</span> memo[n]
+    <span class="kw">if</span> n &lt;= <span class="num">1</span>: <span class="kw">return</span> n
+    memo[n] = <span class="fn">fib2</span>(n-<span class="num">1</span>, memo) + <span class="fn">fib2</span>(n-<span class="num">2</span>, memo)
+    <span class="kw">return</span> memo[n]</pre></div>
+    </div>
+
+    <div class="card">
+      <h3>🔢 Classic Recursion Problems</h3>
+      <div class="code-block"><pre><span class="cm"># Factorial</span>
+<span class="kw">def</span> <span class="fn">factorial</span>(n):
+    <span class="kw">if</span> n &lt;= <span class="num">1</span>: <span class="kw">return</span> <span class="num">1</span>
+    <span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="num">1</span>)
+
+<span class="cm"># Power — fast exponentiation O(log n)</span>
+<span class="kw">def</span> <span class="fn">power</span>(base, exp):
+    <span class="kw">if</span> exp == <span class="num">0</span>: <span class="kw">return</span> <span class="num">1</span>
+    <span class="kw">if</span> exp % <span class="num">2</span> == <span class="num">0</span>:
+        half = <span class="fn">power</span>(base, exp // <span class="num">2</span>)
+        <span class="kw">return</span> half * half
+    <span class="kw">return</span> base * <span class="fn">power</span>(base, exp - <span class="num">1</span>)
+
+<span class="cm"># Flatten nested list</span>
+<span class="kw">def</span> <span class="fn">flatten</span>(lst):
+    result = []
+    <span class="kw">for</span> item <span class="kw">in</span> lst:
+        <span class="kw">if isinstance</span>(item, <span class="fn">list</span>):
+            result.extend(<span class="fn">flatten</span>(item))
+        <span class="kw">else</span>:
+            result.append(item)
+    <span class="kw">return</span> result</pre></div>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Key Reminders</h3>
+      <ul>
+        <li>Always define the <strong>base case first</strong> — missing it = infinite recursion</li>
+        <li>Each call must move <strong>closer to the base case</strong> (shrink n, advance pointer, etc.)</li>
+        <li>Python default recursion limit is <strong>1000</strong> — use <code>sys.setrecursionlimit</code> or convert to iterative for deep inputs</li>
+        <li>Call stack depth = O(n) extra space — factor into space complexity</li>
+        <li>When you see <strong>tree / graph / subsets / DP</strong> — think recursion first</li>
+        <li>If subproblems <strong>overlap</strong>, add memoization (<code>@lru_cache</code>)</li>
       </ul>
     </div>
   </div>
